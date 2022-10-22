@@ -10,12 +10,17 @@ function clearDisplay(){
 }
 
 function deleteString(){
-    display.textContent = display.textContent.slice(0, display.textContent.length - 1);
+    if (display.textContent.length > 0 && display.textContent !== "OVERFLOW") 
+        display.textContent = display.textContent.slice(0, display.textContent.length - 1);
 }
 
 function writeDisplay()
 {
-    display.textContent += this.innerText;
+    if (display.textContent.length >= 13 || display.textContent === "OVERFLOW"){
+        display.textContent = "OVERFLOW";
+    }
+    else
+        display.textContent += this.innerText;
 }
 
 function main(){

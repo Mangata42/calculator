@@ -1,7 +1,7 @@
 
 body{
     background-color: #03213f;
-    height: 100vh;
+    height: 100%;
 }
 
 .calculator{
@@ -22,6 +22,7 @@ body{
     justify-content: flex-end;
     align-items: center;
     background-color: #97B0A6;
+    font-size: 50px;
     overflow: hidden;
     margin-bottom: 30px;
     width: 350px;
