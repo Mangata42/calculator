@@ -81,7 +81,6 @@ function mult(n1, n2){
 function operate(){
     console.log("operate!");
 
-    display.textContent = "";
     if (chosenOp == "+"){
         n1 = String(add(n1, n2));
         n2 = "";
