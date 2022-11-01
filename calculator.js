@@ -4,8 +4,10 @@ let btnDelete = document.querySelector(".delete");
 let btnNum = document.querySelectorAll(".num");
 let btnOp = document.querySelectorAll(".op");
 let btnEq = document.querySelector(".equal");
+let allBtn = document.querySelectorAll("button");
 let clearScreenOnce = 0;
 let chosenOp = equation = "";
+
 
 function add(n1, n2)
 {
@@ -48,6 +50,7 @@ function deleteString()
 
 function selectOperation()
 {
+
     if (equation.includes("+") || equation.includes("-")
         || equation.includes("/") || equation.includes("x"))
         operate();
@@ -73,7 +76,7 @@ function writeDisplay()
         clearScreenOnce = 0;
     }
 
-    if (display.textContent.length >= 14 || display.textContent === "OVERFLOW")
+    if (display.textContent.length >= 11 || display.textContent === "OVERFLOW")
     {
         display.textContent = "OVERFLOW";
         equation = "";
@@ -95,11 +98,6 @@ function operate()
     n1 = Number(equation[0]);
     n2 = Number(equation[1]);
 
-    /* this is made so multiple clicks on operator will just keep 
-        operating with n1, eg: 2 + (+, +, +) = 16 */
-    if (!n2)
-        n2 = n1; 
-
     switch(chosenOp){
         case "+":
             equation = add(n1, n2);
@@ -118,7 +116,7 @@ function operate()
     }
 
     // if result exceeds char limit of 14, round up
-    if (equation.toString().length >= 14)
+    if (equation.toString().length >= 14 && typeof equation == "number")
         equation = equation.toFixed(4);
     else
         equation = String(equation);
@@ -135,6 +133,28 @@ function main()
     btnEq.addEventListener("click", operate);
     btnClear.addEventListener("click", clearAll);
     btnDelete.addEventListener("click", deleteString);
+
+    const borderAttr = document.createAttribute("style");
+    const backgroundAttr = document.createAttribute("style");
+    borderAttr.value = "border: 1px solid #b08efe";
+    backgroundAttr.value = "background-color: #b08efe";
+
+    // general styling events
+    allBtn.forEach( (el) => el.addEventListener("mouseenter", function (){
+        this.setAttributeNode(borderAttr);
+    }))
+
+    allBtn.forEach( (el) => el.addEventListener("mouseleave", function(){
+        this.removeAttributeNode(borderAttr);
+    }))
+
+    allBtn.forEach( (el) => el.addEventListener("mousedown", function(e) {
+        this.setAttributeNode(backgroundAttr);
+    }))
+
+    allBtn.forEach( (el) => el.addEventListener("mouseup", function(){
+        this.removeAttributeNode(backgroundAttr);
+    }))
 }
 
 main();

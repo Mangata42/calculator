@@ -1,6 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Silkscreen&display=swap');
 
-body{
-    background-color: #03213f;
+*{
+    font-family: 'Silkscreen', cursive;
+    letter-spacing: -5px;
+}
+
+body{ 
+    background-image: url(https://www.pixelstalk.net/wp-content/uploads/2016/07/8-Bit-Backgrounds.jpg);
+    background-position: center;
+    background-size: cover;
     height: 100%;
 }
 
@@ -10,7 +18,7 @@ body{
     align-items: center;
     justify-content: center;
     background-color: rgb(37, 36, 36);
-    border: 3px outset #da4e32;
+    border: 3px outset #b08efe;
     border-radius: 15px;
     width: 400px;
     height: 600px;
@@ -21,7 +29,8 @@ body{
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    background-color: #97B0A6;
+    background-color:#7fd0e1;
+    color: #10206e;
     font-size: 50px;
     overflow: hidden;
     margin-bottom: 30px;
@@ -40,14 +49,19 @@ body{
 
 .clear, 
 .delete{
-    background-color: #da4e32;
+    background-color: #b08efe;
     width: 170px;
     font-size: 30px;
     margin-bottom: 5px;
 }
 
+.op,
+.equal{
+    background-color: #b08efe;
+}
+
 button{
-    background-color: #03213f;
+    background-color: #7fd0e1;
     border: 1px solid #fff;
     border-radius: 20px;
     color: #fff;
